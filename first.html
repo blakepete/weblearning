@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>i got discs.</title>
+        <!--
+            This is a comment.
+        -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Roboto+Slab&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --one: #1a1a1d;
+                --two: #4e4e50;
+                --three: #6f2232;
+                --four: #950740;
+                --five: #c3073f;
+                }
+            a:hover {
+                color: yellow;
+            }
+            a {
+                color: white;
+            }
+            a:hover, a:visited, a:link, a:active{
+                text-decoration: none;
+            }
+            #bigbanner {
+                padding: 5px 0px 20px 0px;
+                margin: auto;
+                background-color: var(--two);
+                text-align: center;
+            }
+            #bigbanner p{
+                color: var(--five);
+                font-size: 70px;
+                font-weight: bolder;
+                margin: auto;
+                font-family: 'Coming Soon', cursive;
+            }
+            #nav {
+                background-color: var(--five);
+                margin: auto;
+                padding: 7px 0px 7px 0px;
+            }
+            #nav ul {
+                list-style-type: none;
+            }
+            #nav li {
+                display: inline;
+                color: white;
+                padding: 5px;
+                font-family: 'Roboto Slab', serif;
+            }
+            body {
+                background-color: var(--one);
+                text-align: center;
+            }
+            #bigbodydiv {
+                margin: auto;
+                font-family: 'Roboto Slab', serif;
+                background-color: var(--two);
+                border-color: var(--four);
+                border-width: 2px;
+                border-style: solid;
+                padding: 10px;
+            }
+            #bigbodydiv h3 {
+                color: white;
+                text-align: center;
+            }
+            #disclist ul {
+                color: white;
+                text-transform: uppercase;
+                padding: 0px;
+                list-style-type: none;
+            }
+            #disclist li {
+                border: 3px solid var(--five);
+                border-radius: 10px;
+                padding: 10px;
+                margin: 2px;
+                display: inline-block;
+                min-width: 100px;
+                height: 100px;
+                font-size: larger;
+                background-color: var(--five);
+                opacity: .7;
+                box-shadow: 0px 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            }
+            #disclist img {
+                width: 70px;
+            }
+            #footer {
+                font-style:italic;
+                font-size: 10px;
+                color: white;
+                text-align: center;
+            }
+        </style>
+        <div id="bigbanner">
+            <img width=300em src="https://frisbeegolfdiscs.com/wp-content/uploads/2019/08/Cheap_Frisbees_Banner.jpg"> 
+            <p>i got discs.</p>
+        </div>
+        <div>
+            <ul id="nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Stash</a></li>
+                <li><a href="#">Got Discs</a></li>
+                <li><a href="#">Need Discs</a></li>
+                <li><a href="#">Get Good</a></li>
+                <li><a href="#">Got Friends</a></li>
+                <li><a href="#">Get in Touch</a></li>
+            </ul>
+        </div>
+    </head>
+    <body>
+        <main>
+            <div id="bigbodydiv">
+                <div>
+                    <h3>Look at them.</h3>
+                </div>
+                <div id="disclist" >
+                    <ul>
+                        <li>
+                            <img src="https://cdn11.bigcommerce.com/s-ae3w3/images/stencil/500x659/products/48433/98926/1007-LUCFELON__50616.1602103410.gif">
+                            <br>Felon</li>
+                        <li>
+                            <img src="https://cdn3.volusion.com/araxw.posjr/v/vspfiles/photos/DB1029371-2.jpg">
+                            <br>Explorer</li>
+                        <li>
+                            <img src="https://images-na.ssl-images-amazon.com/images/I/91VDUj16hGL._AC_SL1500_.jpg">
+                            <br>Rat</li>
+                        <li>
+                            <img src="https://cdn.shopify.com/s/files/1/0063/8389/4580/products/PGBG-P-S_1400x.jpg">
+                            <br>P Model S</li>
+                        <li>
+                            <img src="https://www.discraft.com/product/image/large/roach.brodie_greypinkroach.jpg">
+                            <br>Roach</li>
+                        <li>
+                            <img src="https://cdn.shopify.com/s/files/1/0605/6573/products/2707.png">
+                            <br>Wizard</li>
+                    </ul>
+                </div>
+                <br>
+                <div id="adder"> 
+                    <form id="adderform" action="#">
+                        <input type="text" placeholder="Disc" required>
+                        <button type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </body>
+    <footer id="footer">
+        <p>@copyright blake</p>
+    </footer>
+</html>
