@@ -6,16 +6,23 @@
         <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Roboto+Slab&display=swap" rel="stylesheet">
         <style>
             :root {
+
             --black: #1C140D;
             --dblue: #00A8C6;
             --lblue: #40C0CB;
             --white: #F9F2E7;
             --lgreen: #AEE239;
             --dgreen: #8FBE00;
+            font-family: Arial, sans-serif;
             }
             #jumbo {
-                padding: 50px; /*temp spaceholder*/
                 margin: auto;
+                padding: 40px 0px 15px 15px;
+                background-color:var(--lgreen);
+                color: var(--dblue);
+                font-size: 70px;
+                font-weight: bolder;
+                font-family: 'Coming Soon', cursive;
             }
             #nav ul {
                 display: flex;
@@ -41,27 +48,36 @@
 
             }
             #portrait{
-                
+        
             }
             #portrait img{
-                max-width: 250px;
+                max-width: 96%;
+                margin: 5px;
             }
             #stats {
 
             }
-            #feed {                
-            }
-            #sponsors{
+            #feed {   
 
+            }
+            #sponsors {
+                
+            }
+            #sponsors img {
+                max-width: 93%;
+                margin: 5px;
             }
             #bag{
 
+            }
+            #bag td{
+                text-align: center;
             }
             #forsale{
 
             }
             #portrait, #stats, #feed, #sponsors, #bag, #forsale {
-                margin: 10px;
+                margin: 2px;
                 border: var(--dblue);
                 border-style: solid;
             }
@@ -69,22 +85,44 @@
                 display: flex;
                 flex-direction: column;
             }
+            #colright{
+                max-width: 150px;
+            }
+            #colleft{
+            }
+            #colmid{
+            }
             #bigboi{
                 display: flex;
+            }
+            #bigboi h2{
+                margin: 5px;
+                font-family: 'Roboto Slab', serif;
             }
             .post{
                 border: var(--lgreen);
                 border-style: solid;
+                margin: 5px;
+            }
+            .post p{
+                margin: 5px 5px 5px 5px;
+            }
+            .post h4{
+                margin: 5px 5px 5px 5px;
             }
             #colmid {
                 min-width: 400px;
+            }
+            #forsale img{
+                max-width: 93%;
+                margin: 5px;
             }
 
         </style>
     </head>
     <body>
         <header>
-            <p id="jumbo">logo</p>
+            <p id="jumbo">i got discs.</p>
             <nav id="nav">
                 <ul>
                     <li>Home</li>
@@ -137,12 +175,12 @@
                                 <th>Fade</th>
                             </tr>
                             <tr>
-                                <th>Discraft</th>
-                                <th>Luna</th>
-                                <th>2</th>
-                                <th>3</th>
-                                <th>0</th>
-                                <th>2</th>
+                                <td>Discraft</td>
+                                <td>Luna</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>0</td>
+                                <td>2</td>
                             </tr>
                         </table>
                     </section>
@@ -156,7 +194,7 @@
                             <p>1/8/2021 12:30 PM</p>
                         </article>
                         <article class="post">
-                            <h4>Paul Ulibari</h4>
+                            <h4>Paul Ulibarri</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                             <p>1/6/2021 1:55 PM</p>
                         </article>
@@ -175,14 +213,14 @@
                 <div id="colright" class="maincol">
                     <section id="sponsors">
                         <h2>Sponsors</h2>
-                        <img src="#">
-                        <img src="#">
-                        <img src="#">
+                        <img src="https://i.imgur.com/iV64zzE.png">
+                        <img src="http://ultimate.discraft.com/downloads/discraft_logo_color.png">
+                        <img src="https://cdn.shopify.com/s/files/1/0106/8476/0128/files/foundation-02_1200x1200.png">
                     </section>
                     <section id="forsale">
                         <h2>For Sale</h2>
-                        <img src="#">
-                        <p>Discraft Zues</p>
+                        <img src="https://cdn.shopify.com/s/files/1/0753/6961/products/Discraft_ESP_Zeus_First_Run_Paul_McBeth_Signature_173-174_Swirl_55.jpg">
+                        <p>Discraft Zues $5</p>
                     </section>
                 </div>
             </div>
