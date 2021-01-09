@@ -40,7 +40,7 @@
             #nav {
                 background-color: var(--five);
                 margin: auto;
-                padding: 7px 0px 7px 0px;
+                padding: 5px 0px 5px 0px;
             }
             #nav ul {
                 list-style-type: none;
@@ -87,14 +87,23 @@
                 min-height: 100px;
                 font-size: larger;
                 background-color: var(--five);
-                opacity: .7;
                 box-shadow: 0px 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
             }
             #disclist img:hover {
-                width: 400px;
+                z-index: 2;
+                animation-name: discplode;
+                animation-duration: 500ms;
+                animation-fill-mode: forwards;
+                animation-timing-function: ease-in;
+            }
+            @keyframes discplode {
+                100% {
+                    transform: scale(6);
+                }
             }
             #disclist img {
                 width: 70px;
+                border-radius: 35px;
             }
             #footer {
                 font-style:italic;
@@ -103,23 +112,25 @@
                 text-align: center;
             }
         </style>
-        <div id="bigbanner">
-            <img width=300em src="https://frisbeegolfdiscs.com/wp-content/uploads/2019/08/Cheap_Frisbees_Banner.jpg"> 
-            <p>i got discs.</p>
-        </div>
-        <div>
-            <ul id="nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Stash</a></li>
-                <li><a href="#">Got Discs</a></li>
-                <li><a href="#">Need Discs</a></li>
-                <li><a href="#">Get Good</a></li>
-                <li><a href="#">Got Friends</a></li>
-                <li><a href="#">Get in Touch</a></li>
-            </ul>
-        </div>
     </head>
     <body>
+        <header>
+            <div id="bigbanner">
+                <img width=300em src="https://frisbeegolfdiscs.com/wp-content/uploads/2019/08/Cheap_Frisbees_Banner.jpg"> 
+                <p>i got discs.</p>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Stash</a></li>
+                    <li><a href="#">Got Discs</a></li>
+                    <li><a href="#">Need Discs</a></li>
+                    <li><a href="#">Get Good</a></li>
+                    <li><a href="#">Got Friends</a></li>
+                    <li><a href="#">Get in Touch</a></li>
+                </ul>
+            </nav>
+        </header>
         <main>
             <div id="bigbodydiv">
                 <div>
@@ -156,8 +167,6 @@
                 </div>
             </div>
         </main>
+        <footer id="footer">@copyright blake</footer>
     </body>
-    <footer id="footer">
-        <p>@copyright blake</p>
-    </footer>
 </html>
