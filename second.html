@@ -18,13 +18,13 @@
                 margin: auto;
             }
             #nav ul {
+                display: flex;
                 list-style-type: none;
                 background-color: var(--dgreen);
                 margin: auto;
                 padding: 5px;
             }
             #nav li {
-                display: inline;
                 color: var(--white);
                 padding: 5px;
                 font-family: 'Roboto Slab', serif;
@@ -35,14 +35,51 @@
             body {
                 background-color: var(--white);
             }
+            main {
+            }
+            main section {
+
+            }
+            #portrait{
+                
+            }
+            #portrait img{
+                max-width: 250px;
+            }
             #stats {
 
             }
-            #feed {
+            #feed {                
+            }
+            #sponsors{
+
+            }
+            #bag{
+
+            }
+            #forsale{
+
+            }
+            #portrait, #stats, #feed, #sponsors, #bag, #forsale {
+                margin: 10px;
                 border: var(--dblue);
                 border-style: solid;
-                margin: auto;
             }
+            .maincol {
+                display: flex;
+                flex-direction: column;
+            }
+            #bigboi{
+                display: flex;
+            }
+            .post{
+                border: var(--lgreen);
+                border-style: solid;
+            }
+            #colmid {
+                min-width: 400px;
+            }
+
         </style>
     </head>
     <body>
@@ -57,73 +94,98 @@
             </nav>
         </header>
         <main>
-            <section id="picture">
-                <h2>Paul McBeth</h2>
-                <img src="https://pbs.twimg.com/profile_images/1081782552036286464/XA44OBLN.jpg">
-            </section>
-            <section id="stats">
-                <h2>Stats</h2>
-                <table>
-                    <tr>
-                        <td>Rating</th>
-                        <td>1054</th>
-                    </tr>
-                    <tr>
-                        <td>World Championships</th>
-                        <td>5</th>
-                    </tr>
-                    <tr>
-                        <td>Career Events</th>
-                        <td>342</th>
-                    </tr>
-                    <tr>
-                        <td>Career Wins</th>
-                        <td>130</th>
-                    </tr>
-                    <tr>
-                        <td>Career Earnings</th>
-                        <td>$510,680.09</th>
-                    </tr>
-                </table>
-            </section>
-            <section id="feed">
-                <h2>Feed</h2>
-                <h4>Eagle McMahon</h4>
-                <p>Hello friend, lets play together.</p>
-                <p>1/8/2021 12:30 PM</p>
-            </section>
-            <section id="sponsors">
-                <h2>Sponsors</h2>
-                <img src="#">
-                <img src="#">
-                <img src="#">
-            </section>
-            <section id="bag">
-                <h2>Bag</h2>
-                <table>
-                    <tr>
-                        <th>Manf</th>
-                        <th>Disc</th>
-                        <th>Speed</th>
-                        <th>Glide</th>
-                        <th>Turn</th>
-                        <th>Fade</th>
-                    </tr>
-                    <tr>
-                        <th>Discraft</th>
-                        <th>Luna</th>
-                        <th>2</th>
-                        <th>3</th>
-                        <th>0</th>
-                        <th>2</th>
-                    </tr>
-                </table>
-            </section>
-            <section id="forsale">
-                <h2>For Sale</h2>
-                <img src="#">
-                <p>Discraft Zues</p>
-            </section>
+            <div id="bigboi">
+                <div id="colleft" class="maincol">
+                    <section id="portrait">
+                        <h2>Paul McBeth</h2>
+                        <img src="https://pbs.twimg.com/profile_images/1081782552036286464/XA44OBLN.jpg">
+                    </section>
+                    <section id="stats">
+                        <h2>Stats</h2>
+                        <table>
+                            <tr>
+                                <td>Rating</th>
+                                <td>1054</th>
+                            </tr>
+                            <tr>
+                                <td>World Championships</th>
+                                <td>5</th>
+                            </tr>
+                            <tr>
+                                <td>Career Events</th>
+                                <td>342</th>
+                            </tr>
+                            <tr>
+                                <td>Career Wins</th>
+                                <td>130</th>
+                            </tr>
+                            <tr>
+                                <td>Career Earnings</th>
+                                <td>$510,680.09</th>
+                            </tr>
+                        </table>
+                    </section>
+                    <section id="bag">
+                        <h2>Bag</h2>
+                        <table>
+                            <tr>
+                                <th>Manf</th>
+                                <th>Disc</th>
+                                <th>Speed</th>
+                                <th>Glide</th>
+                                <th>Turn</th>
+                                <th>Fade</th>
+                            </tr>
+                            <tr>
+                                <th>Discraft</th>
+                                <th>Luna</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>0</th>
+                                <th>2</th>
+                            </tr>
+                        </table>
+                    </section>
+                </div>
+                <div id="colmid" class="maincol">
+                    <section id="feed">
+                        <h2>Feed</h2>
+                        <article class="post">
+                            <h4>Eagle McMahon</h4>
+                            <p>Hello friend, lets play together.</p>
+                            <p>1/8/2021 12:30 PM</p>
+                        </article>
+                        <article class="post">
+                            <h4>Paul Ulibari</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>1/6/2021 1:55 PM</p>
+                        </article>
+                        <article class="post">
+                            <h4>Jeremy Koling</h4>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                            <p>1/2/2021 8:27 PM</p>
+                        </article>
+                        <article class="post">
+                            <h4>Kevin Jones</h4>
+                            <p>Sup.</p>
+                            <p>12/27/2020 4:30 AM</p>
+                        </article>
+                    </section>
+                </div>
+                <div id="colright" class="maincol">
+                    <section id="sponsors">
+                        <h2>Sponsors</h2>
+                        <img src="#">
+                        <img src="#">
+                        <img src="#">
+                    </section>
+                    <section id="forsale">
+                        <h2>For Sale</h2>
+                        <img src="#">
+                        <p>Discraft Zues</p>
+                    </section>
+                </div>
+            </div>
         </main>
         <footer>
 
