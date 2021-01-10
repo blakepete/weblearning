@@ -127,7 +127,7 @@
             justify-content: center;
             text-align: center;
             height: 200px;
-            margin-top: 50px;
+            margin-top: 100px;
         }
 
         #hero > h2 {
@@ -199,7 +199,100 @@
             height: 150px;
         }
         }
+        
+        #how-it-works{
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
 
+        #how-it-works > iframe {
+            max-width: 560px;
+            width: 100%;
+            height: 315px;
+        }
+        #pricing {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+        }
+
+        .product {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 10px;
+            border: 1px solid magenta;
+            border-radius: 3px;
+            width: calc(100% / 3);
+        }
+
+        .product > .level {
+            padding: 15px 0;
+            text-transform: uppercase;
+            background-color: rgb(118, 135, 187);
+            width: 100%;
+            font-weight: 700;
+        }
+
+        .product > h2 {
+            margin-top: 15px;
+        }
+
+        .product > ol {
+            margin: 15px 0;
+        }
+
+        .product > ol > li {
+            padding: 5px 0;
+        }
+
+        .product > button {
+            margin: 15px 0;
+            border: 0;
+            background-color: mediumvioletred;
+            font-weight: 400;
+            color: mintcream;
+        }
+
+        .product > button:hover {
+            background-color: hotpink;
+            transition: background-color 1s;
+        }
+
+        @media (max-width: 650px) {
+        #pricing {
+            flex-direction: column;
+        }
+        .product {
+            max-width: 300px;
+            width: 100%;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+        }
+        footer {
+            margin-top: 30px;
+            background-color: #ddd;
+            padding: 20px;
+        }
+        footer > ul {
+            display: flex;
+            justify-content: flex-end;
+        }
+        footer > ul > li {
+            padding: 0 10px;
+        }
+        footer > span {
+            margin-top: 5px;
+            display: flex;
+            justify-content: flex-end;
+            font-size: 0.9em;
+            color: #444;
+            padding-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -210,17 +303,17 @@
             </div>
             <nav id="nav-bar">
                 <ul>
-                    <li><a class="nav-link" href="#">Features</a></li>
-                    <li><a class="nav-link" href="#">Intro Lesson</a></li>
-                    <li><a class="nav-link" href="#">Pricing</a></li>
+                    <li><a class="nav-link" href="#features">Features</a></li>
+                    <li><a class="nav-link" href="#how-it-works">Intro Lesson</a></li>
+                    <li><a class="nav-link" href="#pricing">Pricing</a></li>
                 </ul>
             </nav>
         </header>
         <section id="hero">
             <h2>Free Daily Tips and Tricks</h2>
             <form id="form" action="https://www.freecodecamp.com/email-submit">
-                <input id="email" type="email" placeholder="Email">
-                <input id="submit" type="submit" class="btn" value="Sign Up">
+                <input id="email" name="email" type="email" placeholder="Email">
+                <input id="submit"  type="submit" class="btn" value="Sign Up">
             </form>
         </section>
         <div class="container">
@@ -254,50 +347,50 @@
                 </div>
             </section>
             <section id="how-it-works">
-                <iframe id="video" width="448" height="252" src="https://www.youtube.com/embed/ioxQz3i8b-U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe id="video" src="https://www.youtube.com/embed/ioxQz3i8b-U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </section>
             <section id="pricing">
                 <div class="product" id="tenor">
-                    <div class="level">Level</div>
-                    <h2></h2>
+                    <div class="level">Beginner</div>
+                    <h2>$500</h2>
                     <ol>
-                        <li>list</li>
-                        <li>list</li>
-                        <li>list</li>
-                        <li>list</li>
+                        <li>0-1000</li>
+                        <li>Lorem ipsum.</li>
+                        <li>Lorem ipsum dolor.</li>
+                        <li>Lorem ipsum.</li>
                     </ol>
                     <button class="btn">Select</button>
                 </div>
                 <div class="product" id="bass">
-                    <div class="level">Level</div>
-                    <h2></h2>
+                    <div class="level">Advanced</div>
+                    <h2>$800</h2>
                     <ol>
-                        <li>list</li>
-                        <li>list</li>
-                        <li>list</li>
-                        <li>list</li>
+                        <li>1000-1600</li>
+                        <li>Lorem ipsum.</li>
+                        <li>Lorem ipsum dolor.</li>
+                        <li>Lorem ipsum.</li>
                     </ol>
                     <button class="btn">Select</button>
                 </div>
                 <div class="product" id="valve">
-                    <div class="level">Level</div>
-                    <h2></h2>
+                    <div class="level">Master</div>
+                    <h2>$1200</h2>
                     <ol>
-                        <li>list</li>
-                        <li>list</li>
-                        <li>list</li>
-                        <li>list</li>
+                        <li>1600-2000</li>
+                        <li>Lorem ipsum.</li>
+                        <li>Lorem ipsum dolor.</li>
+                        <li>Lorem ipsum.</li>
                     </ol>
                     <button class="btn">Select</button>
                 </div>
             </section>
             <footer>
                 <ul>
-                    <li><a href="#">link</a></li>
-                    <li><a href="#">link</a></li>
-                    <li><a href="#">link</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
-                <span>copyright Blake</span>
+                <span>copyright blake</span>
             </footer>
         </div>
     </div>
