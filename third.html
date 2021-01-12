@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+        /* Custom properties/variables  */
+        :root {
+        --main-white: #f0f0f0;
+        --main-red: #be3144;
+        --main-blue: #45567d;
+        --main-gray: #303841;
+        }
+
+        /* Base reset */
+        * {
+        margin: 0;
+        padding: 0;
+        }
+
+        /* box-sizing and font sizing */
+        *,
+        *::before,
+        *::after {
+        box-sizing: inherit;
+        }
+
+        html {
+        box-sizing: border-box;
+
+        /* Set font size for easy rem calculations
+        * default document font size = 16px, 1rem = 16px, 100% = 16px
+        * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+        */
+        font-size: 62.5%;
+        scroll-behavior: smooth;
+        }
+
+        /* A few media query to set some font sizes at different screen sizes.
+        * This helps automate a bit of responsiveness.
+        * The trick is to use the rem unit for size values, margin and padding.
+        * Because rem is relative to the document font size
+        * when we scale up or down the font size on the document
+        * it will affect all properties using rem units for the values.
+        */
+
+        /* I am using the em unit for breakpoints
+        * The calculation is the following
+        * screen size divided by browser base font size
+        * As an example: a breakpoint at 980px
+        * 980px / 16px = 61.25em
+        */
+
+        /* 1200px / 16px = 75em */
+        @media (max-width: 75em) {
+        html {
+            font-size: 60%;
+        }
+        }
+
+        /* 980px / 16px = 61.25em */
+        @media (max-width: 61.25em) {
+        html {
+            font-size: 58%;
+        }
+        }
+
+        /* 460px / 16px = 28.75em */
+        @media (max-width: 28.75em) {
+        html {
+            font-size: 55%;
+        }
+        }
+
+        /* Base styles */
+
+        body {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.8rem; /* 18px */
+        font-weight: 400;
+        line-height: 1.4;
+        /* color: var(--main-white); */
+        }
+
+        h1,
+        h2 {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        text-align: center;
+        }
+
+        h1 {
+        font-size: 6rem;
+        }
+
+        h2 {
+        font-size: 3rem;
+        }
+
+        ul {
+        list-style: none;
+        }
+
+        a {
+        text-decoration: none;
+        /* color: var(--main-white); */
+        }
+        
+        img {
+        display: block;
+        width: 100%;
+        }
+
+        body{
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            align-items: center;
+            text-align: center;
+
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            padding: 5px;
+            margin: 10px;
+            border: 2px solid darkkhaki;
+        }
+
+        article {
+            display: flex;
+            flex-direction: column;
+            padding: 2px;
+            margin: 3px;
+            border: 1px dashed dimgrey;
+        }
+
+        p {
+            text-align: center;
+            margin: 2px;
+            padding: 3px;
+        }
+
+        input {
+            margin: 2px;
+            text-align: center;
+        }
+
+        button {
+            margin: 2px;
+            padding: 3px;
+        }
+
+        .output {
+            background-color: lightgray;
+            max-width: 100%;
+        }
+
+    </style>
+    <script>
+        function helloWorld() {
+            document.getElementById("hello-world-output").innerHTML="Hello World!";
+        }
+        function concatter(x, y) {
+            if (x !=="" && y !==""){
+                document.getElementById("concatter-output").innerHTML = x.concat(y);
+            }
+        }
+        function adder(x, y) {
+            if (isFinite(parseInt(x)) && isFinite(parseInt(y))){
+                document.getElementById("adder-output").innerHTML = parseInt(x)+parseInt(y);
+            } else {
+                document.getElementById("adder-output").innerHTML = "Invalid";
+             }
+            // document.getElementById("adder-output").style.height = "auto";
+        }
+        function strLength(x) {
+                document.getElementById("str-length-output").innerHTML = x.length;
+        }
+        function firstChar(x) {
+                document.getElementById("first-char-output").innerHTML = x[0];
+        }
+        function nthChar(x,y) {
+            document.getElementById("nth-char-output").innerHTML = x[y-1];
+        }
+        
+        var listArray = ["<li>eggs","<li>bananas"];
+        
+        function showList() {
+            let tempList = "";
+            for (let i = 0; i < listArray.length; i++){
+                tempList = tempList + "<li>" + listArray[i];
+            }
+            document.getElementById("thelist").innerHTML = tempList;
+        }
+        function addItem(x) {
+            listArray.push(x);
+            showList();
+        }
+        function remItem(){
+            listArray.pop();
+            showList();
+        }
+
+        function COLLAPSEINCOMPLETECODE(){
+        // var stash = {
+        //     2548: {
+        //         albumTitle: 'Slippery When Wet',
+        //         artist: 'Bon Jovi',
+        //         tracks: ['Let It Rock', 'You Give Love a Bad Name']
+        //     },
+        //     2468: {
+        //         albumTitle: '1999',
+        //         artist: 'Prince',
+        //         tracks: ['1999', 'Little Red Corvette']
+        //     },
+        //     1245: {
+        //         artist: 'Robert Palmer',
+        //         tracks: []
+        //     },
+        //     5439: {
+        //         albumTitle: 'ABBA Gold'
+        //     }
+        // };
+        // 
+        // i need to learn for...in to display objects properly. circling back later. 
+        // 
+        // function refreshRecords() {
+        //     let displayContent = "";
+        //     for (let i = 0; i < stash.length; i++){
+        //         console.log("hi");
+        //         displayContent = displayContent + "x" + stash[i];
+        //     }
+        //     document.getElementById("record-div").innerHTML = displayContent;
+        // }
+        }
+
+    </script>
+</head>
+<body>
+    <nav>
+
+    </nav>
+    <section id="hello-world">
+        <button onclick="helloWorld()">Hello</button>
+        <p id="hello-world-output" class="output">&zwnj;</p>
+    </section>
+    <section id="concatter">
+        <input id="testone" type="text" size="10" placeholder="Conca-">
+        <input id="testtwo" type="text" size="10" placeholder="tenate">
+        <button onclick="concatter(testone.value, testtwo.value)">Together</button>
+        <p id="concatter-output" class="output">&zwnj;</p>
+    </section>
+    <section id="math">
+        <input id="addone" type="text" size="5" placeholder="num">
+        <input id="addtwo" type="text" size="5" placeholder="num">
+        <button onclick="adder(addone.value, addtwo.value)">Add </button>
+        <p id="adder-output" class="output">&nbsp;</p>
+    </section>
+    <section id="stringplay">
+        <input id="strinput" type="text" size="10" placeholder="text">
+        <article id="str-length">
+            <button onclick= "strLength(strinput.value)">Get Length</button>
+            <p id ="str-length-output" class="output">&nbsp;</p>
+        </article>
+        <article id="first-char">
+            <button onclick= "firstChar(strinput.value)">First Character</button>
+            <p id ="first-char-output" class="output">&nbsp;</p>
+        </article>
+        <article id="nth-char">
+            <span>
+                <input id="nthinput" type="text" size="2" placeholder="Nth">
+                <button onclick= "nthChar(strinput.value, nthinput.value)">Nth Character</button>
+            </span>
+            <p id ="nth-char-output" class="output">&nbsp;</p>
+        </article>
+    </section>
+    <section id="shopping-list">
+        <h2>Shopping List</h2>
+        <ul id="thelist">
+            <button id="list-starter" onclick="showList()">Show List</button>
+        </ul>
+        <span>
+            <input id="additem" type="text" size="10" placeholder="Add item">
+            <button onclick="addItem(additem.value)">Add</button>
+            <button onclick="remItem()">Undo</button>
+        </span>
+    </section>
+    <section id="record-collection">
+        <!-- i need to learn for...in to display objects properly. circling back later. 
+        <div id="record-div">
+            <button id="record-starter" onclick="refreshRecords()">Show Collection</button>
+        </div> -->
+    </section>
+
+    <footer>
+
+    </footer>
+</body>
+</html>
