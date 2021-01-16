@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log("im alive");
+
+        var watchList = [
+            {
+                "Title": "The Dark Knight",
+                "imdbRating": "9.0",
+            },
+            {
+                "Title": "Batman Begins",
+                "imdbRating": "8.3",
+            },
+            {
+                "Title": "Avatar",
+                "imdbRating": "7.9",
+            }
+        ];
+
+        var ratings = [];
+        for(var i=0; i < watchList.length; i++){
+        ratings.push({title: watchList[i]["Title"],  rating: watchList[i]["imdbRating"]});
+        }
+
+        console.log(ratings);
+        const ratings2 = watchList.map(item => ({title: item["Title"], rating: item["imdbRating"]})); 
+        
+        const ratings3 = watchList.map(item => ({
+            title: item["Title"],
+            rating: item["imdbRating"]
+        }));
+        
+        const ratings4 = watchList.map(({ Title: title, imdbRating: rating }) => ({title, rating}));
+
+        //those were all the same
+        console.log(ratings);
+        console.log(ratings2);
+        console.log(ratings3);
+        console.log(ratings4);
+
+
+        
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
