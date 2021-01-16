@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+    <script>
+
+        // let Disc = function(manufacturer, model, color) {
+        //     this.manufacturer = manufacturer;
+        //     this.model = model;
+        //     this.color = color;
+        // }
+        // let discOne = new Disc("Discraft", "Nuke", "Pink");
+
+        let disc1 = {
+            name: "Felon",
+            color: "pink"
+        };
+        console.log(disc1.name);
+        console.log(disc1.color);
+
+        let disc2 = {
+            name: "Explorer",
+            color: "pink",
+            sayName: function() {
+                return "This is a " + this.color + " " + this.name + ".";
+            }
+        };
+        console.log(disc2.sayName());
+    
+        function Disc0() {
+            this.name = "Rat",
+            this.manufacturer ="Innova",
+            this.color = "Green";
+        }
+        let disc3 = new Disc0();
+        console.log(disc3.name);
+
+        function Disc(name, color) {
+            this.name = name;
+            this.color = color;
+            this.sayTest = function () {
+                console.log("I'm here");
+            }
+            // this.owner = "blake";
+        }
+
+        let disc4 = new Disc("P Model S", "yellow");
+        console.log(disc4.name);
+        console.log(disc4 instanceof Disc); // is true
+        console.log(disc3 instanceof Disc); // is false
+        console.log(disc3 instanceof Disc0); // is true
+
+        // The following code adds all of the own properties of disc4 to the array ownProps
+        let ownProps = [];
+        for (let property in disc4) {
+            if(disc4.hasOwnProperty(property)) {
+                ownProps.push(property);
+            }
+        }
+        console.log(ownProps); // ["name", "color", "owner"]
+
+        Disc.prototype.owner = "blake"; //this removed it from the ownProps. Makes sense. owner is not its own prop. heh.
+        console.log(ownProps); // ["name", "color"]
+        console.log(disc4.owner);
+
+        let ownProps2 = [];
+        for (let property in disc4) {
+            if(disc4.hasOwnProperty(property)) {
+                ownProps2.push(property);
+            } else {
+                ownProps2.push(property);
+            }
+        }
+        console.log(ownProps2); // ["name", "color", "owner"]
+
+        console.log(disc4.constructor); //whole function
+        console.log(disc4.constructor === Disc); //true
+        function addedbyButton(testee) {
+            if (testee.constructor === Disc) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        console.log(addedbyButton(disc4)); //true
+
+        let disc5 = new disc4.constructor("Wizard", "glow"); //this works. of course it works. pretty cool.
+        console.log(disc5.name);
+        console.log(addedbyButton(disc5)); //true
+
+        
+        console.log(Disc.prototype.isPrototypeOf(disc1)); //false
+        console.log(Disc.prototype.isPrototypeOf(disc2)); //false
+        console.log(Disc.prototype.isPrototypeOf(disc3)); //false
+        console.log(Disc.prototype.isPrototypeOf(disc4)); //true
+        console.log(Disc.prototype.isPrototypeOf(disc5)); //true
+
+        console.log(disc1 instanceof Disc); // is false
+        console.log(disc2 instanceof Disc); // is false
+        console.log(disc3 instanceof Disc); // is false
+        console.log(disc4 instanceof Disc); // is true
+        console.log(disc5 instanceof Disc); // is true
+
+        Disc.prototype = {
+            constructor: Disc,
+            owner: "blake",
+            material: "plastic",
+            talk: function() {
+                console.log("hi im talking");
+            },
+            sayName: function() {
+                return "This is " + this.owner + "'s " +  this.color + " " + this.name + ".";
+            }
+        };
+
+        console.log(Disc.prototype.isPrototypeOf(disc4)); //false
+
+        let disc6 = new Disc("Magician", "white");
+        disc6.talk();
+        console.log(disc6.sayName());
+
+        console.log(Disc.prototype.isPrototypeOf(disc1)); //false
+        console.log(Disc.prototype.isPrototypeOf(disc2)); //false
+        console.log(Disc.prototype.isPrototypeOf(disc3)); //false
+        console.log(Disc.prototype.isPrototypeOf(disc4)); //false
+        console.log(Disc.prototype.isPrototypeOf(disc5)); //false
+        console.log(Disc.prototype.isPrototypeOf(disc6)); //true
+
+        console.log(disc1 instanceof Disc); // is false
+        console.log(disc2 instanceof Disc); // is false
+        console.log(disc3 instanceof Disc); // is false
+        console.log(disc4 instanceof Disc); // is false
+        console.log(disc5 instanceof Disc); // is false
+        console.log(disc6 instanceof Disc); // is true
+
+        let ownProps3 = [];
+        for (let property in disc6) {
+            if(disc6.hasOwnProperty(property)) {
+                ownProps3.push(property);
+            } else {
+                ownProps3.push(property);
+            }
+        }
+        console.log(ownProps3); // ["name", "color", "owner"]
+
+        function Product() { }
+        Product.prototype = {
+            constructor: Product,
+            price: 0,
+            sayPrice: function () {
+                console.log(this.name + "is $" + this.price);
+            }
+        };
+
+        let shirt = Object.create(Product.prototype);
+        console.log(shirt.price);
+        shirt.sayPrice(); //hmm this is no different so far. 
+        let ownProps4 = [];
+        for (let property in shirt) {
+            if(disc6.hasOwnProperty(property)) {
+                ownProps4.push(property);
+            } else {
+                ownProps4.push(property);
+            }
+        }
+        console.log(ownProps4); // ["constructor", "price", "sayPrice"]
+        console.log(Product.prototype.isPrototypeOf(shirt)); //true //of course.. why though
+
+
+        Disc.prototype = Object.create(Product.prototype); //overwriting old .prototype and constructor
+        Disc.prototype.constructor = Disc; //this is important to notice *******************************************
+
+
+        console.log(Disc.prototype);
+
+        let disc7 = new Disc("Xcaliber", "pink");
+        console.log(disc7);
+        disc7.sayPrice();
+        console.log(disc7.sayName); //broke
+        //disc7.talk(); //broke ...mean that above overwrote prototype.
+        disc7.sayTest();
+        disc6.sayTest();
+        disc5.sayTest();
+        disc4.sayTest();
+
+        Disc.prototype.throw = function() {
+            console.log("you threw it");
+        };
+
+        disc7.throw();
+        console.log(disc7);
+        //shirt.throw(); //failed as expected.
+        shirt.sayPrice();
+        disc7.sayPrice();
+
+        Disc.prototype.sayPrice = function () {
+            console.log("this is different");
+        };        
+        shirt.sayPrice();
+        disc7.sayPrice();
+
+        let teacher = function(obj) {
+            obj.learned = function() { //literally just creating obj.learned() for whatever was passed as obj
+                console.log("I saw the teacher"); //disc.learned() now works. or whatever you ran it on.
+            }
+        }
+
+        //shirt.learned(); //didnt work
+        teacher(shirt);
+        shirt.learned(); //works now
+
+        function Basket (name, color, chains) {
+            this.name = name;
+            this.color = color;
+            this.chains = chains;
+            let specialBoi = 10; //private variable
+            this.secretAgent = function() {
+                return specialBoi;
+            };
+            this.changerAgent = function(x) {
+                specialBoi = x;
+                return specialBoi;
+            }
+        }
+        let basket1 = new Basket();
+        console.log(basket1.secretAgent());
+        basket1.specialBoi = 5;  //didnt work cuz private.
+        console.log(basket1.secretAgent());
+        console.log(basket1.changerAgent(5)); //im brilliant.
+
+
+
+        // let teacher2 = function(obj) {
+        //     obj.chillin = function() { 
+        //         console.log("Im chillin"); 
+        //     }
+        // }
+        // let teacher3 = function(obj) {
+        //     obj.relaxin = function() { 
+        //         console.log("Im relaxin"); 
+        //     }
+        // }
+
+        let beingCool = (function () {
+            return {
+                teacher2: function(obj) {
+                    obj.chillin = function() {
+                        console.log("chillin");
+                    };
+                },
+                teacher3: function(obj) {
+                    obj.relaxin = function() {
+                        console.log("relaxin");
+                    };
+                }
+            }
+        })(); //invoke immediately
+            
+        beingCool.teacher2(disc1);
+        disc1.chillin();
+        
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
