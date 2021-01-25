@@ -26,16 +26,22 @@
         for(var i=0; i < watchList.length; i++){
         ratings.push({title: watchList[i]["Title"],  rating: watchList[i]["imdbRating"]});
         }
-
-        console.log(ratings);
-        const ratings2 = watchList.map(item => ({title: item["Title"], rating: item["imdbRating"]})); 
         
-        const ratings3 = watchList.map(item => ({
-            title: item["Title"],
-            rating: item["imdbRating"]
-        }));
+        const ratings2 = watchList.map(item => ({title: item["Title"], rating: item["imdbRating"]})); //parameter destructuring
+        
+        const ratings3 = watchList.map(
+            item => (
+                { 
+                    title: item["Title"],
+                    rating: item["imdbRating"]
+                }
+            )
+        );
+        
         
         const ratings4 = watchList.map(({ Title: title, imdbRating: rating }) => ({title, rating}));
+
+
 
         //those were all the same
         console.log(ratings);
@@ -44,9 +50,97 @@
         console.log(ratings4);
 
 
+        //three methods to map and filter
+        //1
+        var filteredList = watchList
+        .map(movie => {
+            return {
+            title: movie.Title,
+            rating: movie.imdbRating
+            };
+        })
+        .filter(movie => {
+            // return true it will keep the item
+            // return false it will reject the item
+            return parseFloat(movie.rating) >= 8.0;
+        });
+        //2
+        var filteredList2 = watchList
+        .map(function(e) {
+            return { title: e["Title"], rating: e["imdbRating"] };
+        })
+        .filter(e => e.rating >= 8);
+        //3
+        filteredList3 = watchList.map(({ Title: title, imdbRating: rating}) => ({title, rating})).filter(flick => parseFloat(flick.rating) >= 8.0);
+
+
+        //two ways to rewrite .filter()
+        //1
+        // The global variable
+        let s = [23, 65, 98, 5];
+        Array.prototype.myFilter = function(callback){
+        // Only change code below this line
+        let newArray = [];
+        this.forEach(function(x) {
+            if (callback(x) == true) {
+            newArray.push(x);
+            }
+        });
+        // Only change code above this line
+        return newArray;
+        };
+        let new_s = s.myFilter(function(item){
+        return item % 2 === 1;
+        });
+        //2
+        // Only change code below this line
+        // let newArray = [];
+        // this.forEach(x => callback(x) ? newArray.push(x) : null);
+        // Only change code above this line
+
+        // Only change code below this line
+        // var averageRating;
+        // averageRating = watchList.reduce((sum, flick)=>(sum + parseFloat(flick.imdbRating)),1);
+        // console.log(averageRating);
+        // averageRating /= watchList.length;
+
+        // Only change code above this line
         
+        // Only change code below this line
+        // var averageRating;
+        // var newList = watchList.filter((flick)=> flick.Director === "Christopher Nolan");
+        
+        // averageRating = newList.reduce((sum, flick)=>(sum + parseFloat(flick.imdbRating)),0);
+        // console.log(averageRating);
+        // averageRating /= newList.length;
+        // Only change code above this line    
+
+        /* //SORT ALGO
+        .sort(function(a, b) {
+            return a - b;
+        })
+        */
 
 
+        function diffArray(arr1, arr2) {
+        return arr1
+            .concat(...arr2)
+            .filter(testee => !arr1.includes(testee) || !arr2.includes(testee));
+        }
+        diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+
+
+        function destroyer(arr) {
+            var flags = Array.from(arguments).slice(1);
+            return arr.filter(val => !flags.includes(val));
+        }
+        destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+        function destroyer(arr) {
+            var flags = [...arguments].slice(1);
+            return arr.filter(val => !flags.includes(val));
+        }
+        destroyer([1, 2, 3, 1, 2, 3], 2, 3);
 
 
     </script>
